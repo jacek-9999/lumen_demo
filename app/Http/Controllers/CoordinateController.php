@@ -12,9 +12,19 @@ class CoordinateController extends Controller
         //
     }
 
-    public function createCoordinates()
+    /*
+     * @return array [id_of_created_place => name_of_created_place]
+     */
+    public function createCoordinates(Request $request)
     {
-        return 'ABC';
+        $params = json_decode($request->getContent(), 1);
+        $out = [];
+        foreach ($params as $param) {
+            $place = new Place($param);
+            $place->save();
+            $out[$place->id] = $place->name;
+        }
+        return $out;
     }
 
     public function getCoordinates(Request $request)
