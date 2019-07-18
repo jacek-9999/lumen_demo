@@ -11,11 +11,11 @@ class CoordinateController extends Controller
 
     public function createCoordinates()
     {
-
+        return 'ABC';
     }
 
     public function getCoordinates()
     {
-
+        return 'ZXC';
     }
 }
