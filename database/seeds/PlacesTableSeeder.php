@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-require 'PlacesTableSeeder.php';
+use App\Place;
 
-class DatabaseSeeder extends Seeder
+class PlacesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call('PlacesTableSeeder');
+        factory(App\Place::class, 20)->create();
     }
 }
