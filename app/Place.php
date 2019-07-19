@@ -11,6 +11,7 @@ class Place extends model
     public function getLocationByCoordinates(float $lat, float $lng, int $threshold)
     {
         $out = [];
+        // should do haversine on db level, but is demo app so some iterations here
         foreach ($this->all()->toArray() as $k => $v) {
             $distance = $this->haversineGreatCircleDistance($lat, $lng, $v['lat'], $v['lng']);
             $v['distance'] = $distance;
